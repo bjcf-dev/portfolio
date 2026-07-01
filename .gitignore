@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Build output
+.next/
+out/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Development tooling & SDD artifacts
+openspec/
+spec.md
+.atl/
