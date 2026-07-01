@@ -27,7 +27,7 @@ export function ThemeToggle() {
     );
   }
 
-  const currentIndex = themes.indexOf(theme as (typeof themes)[number]);
+  const currentIndex = Math.max(0, themes.indexOf(theme as (typeof themes)[number]));
   const nextIndex = (currentIndex + 1) % themes.length;
   const Icon = icons[currentIndex];
 
