@@ -1,9 +1,9 @@
-import { Mail, Github, Linkedin, Globe } from "lucide-react";
+import { Mail, Github, Linkedin } from "lucide-react";
 
 const links = [
   {
-    href: "mailto:billy@bjcf.dev",
-    label: "billy@bjcf.dev",
+    href: "mailto:bj.90.cf@gmail.com",
+    label: "bj.90.cf@gmail.com",
     icon: Mail,
   },
   {
@@ -12,14 +12,9 @@ const links = [
     icon: Github,
   },
   {
-    href: "https://linkedin.com/in/bjcf-dev",
-    label: "linkedin.com/in/bjcf-dev",
+    href: "https://linkedin.com/in/bjcf",
+    label: "linkedin.com/in/bjcf",
     icon: Linkedin,
-  },
-  {
-    href: "https://bjcf.dev",
-    label: "bjcf.dev",
-    icon: Globe,
   },
 ] as const;
 
