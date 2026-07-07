@@ -1,15 +1,20 @@
+"use client";
+
 import Link from "next/link";
 import { FileText, Download } from "lucide-react";
 import { sops } from "@/data/sops";
+import { useLang } from "@/lib/language-context";
 
 export default function SOPsPage() {
+  const { t } = useLang();
+
   return (
     <section className="mx-auto max-w-5xl px-4 py-16">
       <h1 className="text-foreground mb-2 text-3xl font-bold tracking-tight">
-        SOPs
+        {t("sops.title")}
       </h1>
       <p className="text-muted-foreground mb-10 text-lg">
-        Standard Operating Procedures — guías paso a paso para proyectos y herramientas.
+        {t("sops.intro")}
       </p>
 
       <div className="grid gap-4 sm:grid-cols-2">

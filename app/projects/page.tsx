@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { ProjectCard } from "@/components/project-card";
 import { ProjectSkeleton } from "@/components/project-skeleton";
+import { projectSkills } from "@/data/projects";
+import { useLang } from "@/lib/language-context";
 
 interface Repo {
   name: string;
@@ -15,6 +17,7 @@ interface Repo {
 const CACHE_KEY = "github-repos";
 
 export default function ProjectsPage() {
+  const { t } = useLang();
   const [repos, setRepos] = useState<Repo[] | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -39,7 +42,8 @@ export default function ProjectsPage() {
 
   return (
     <section className="mx-auto max-w-5xl px-4 py-16">
-      <h1 className="text-foreground mb-8 text-3xl font-bold tracking-tight">Projects</h1>
+      <h1 className="text-foreground mb-2 text-3xl font-bold tracking-tight">{t("projects.title")}</h1>
+      <p className="text-muted-foreground mb-10 text-lg">{t("projects.intro")}</p>
 
       {error && (
         <p className="text-destructive text-sm">Failed to load: {error}</p>
@@ -63,6 +67,7 @@ export default function ProjectsPage() {
               stars={repo.stargazers_count}
               language={repo.language}
               url={repo.html_url}
+              skills={projectSkills[repo.name] ?? []}
             />
           ))}
         </div>

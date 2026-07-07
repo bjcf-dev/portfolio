@@ -37,3 +37,36 @@
   --accent: #df3620;
   --ring: #df3620;
 }
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Gradient background drift */
+@keyframes gradient-drift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .gradient-drift {
+    background: linear-gradient(-45deg, var(--background), var(--muted), var(--background));
+    background-size: 400% 400%;
+    animation: gradient-drift 20s ease infinite;
+  }
+}
+
+/* Fallback for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .gradient-drift {
+    background: var(--muted);
+  }
+}

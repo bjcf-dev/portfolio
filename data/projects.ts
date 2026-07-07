@@ -1,0 +1,53 @@
+// ponytail: hardcoded per-repo skills — no GitHub topics set on repos
+export const projectSkills: Record<string, string[]> = {
+  "solana-governance-architecture-evolution": [
+    "Rust",
+    "Anchor",
+    "Solana",
+    "On-chain",
+    "Testing",
+  ],
+  "solana-tokens-spl-token2022": [
+    "TypeScript",
+    "Solana",
+    "Token Extensions",
+  ],
+  portfolio: [
+    "TypeScript",
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "GitHub Actions",
+  ],
+  "nodejs-rest-api-mongodb-trivial-app": [
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "JWT",
+    "REST API",
+  ],
+  "Mini-SRM-Supplier-Qualification": [
+    "PHP",
+    "Laravel",
+    "MySQL",
+    "MVC",
+  ],
+  "php-oop-file-handling-shop-list": ["PHP", "OOP", "File I/O"],
+  "php-oop-file-handling-mvc-car-managment": ["PHP", "MVC", "OOP"],
+  "php-fundamental-form": ["PHP", "Forms"],
+  "php-fundamental-chessboard": ["PHP", "Game Logic"],
+  "Java-file-io-collections-players": ["Java", "Collections", "File I/O"],
+  "Java-file-io-collections-EstacionMeteo": ["Java", "Collections", "File I/O"],
+  "Java-oop-essentials-Vehicle-Repair-Management-System": [
+    "Java",
+    "OOP",
+    "UML",
+  ],
+  paletizador: ["Java", "OOP"],
+  "netflicks-scheduler": ["Java", "OOP"],
+  "loteria-navidad": ["Java", "OOP"],
+  "SPA-NASA-MarsRoverPhotos": ["JavaScript", "SPA", "REST API"],
+  MiniTravelHub: ["JavaScript", "API Integration"],
+  FlightHub: ["JavaScript", "API Integration"],
+  "subdomai-is-a-dev": ["JavaScript", "DNS", "CI/CD"],
+};
