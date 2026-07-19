@@ -4,6 +4,15 @@ import Link from "next/link";
 import { Home, FolderKanban, FileText, Mail, Github, Linkedin } from "lucide-react";
 import { useLang } from "@/lib/language-context";
 
+const previewMap: Record<string, string> = {
+  "/": "/previews/home.svg",
+  "/projects": "/previews/projects.svg",
+  "/sop": "/previews/sops.svg",
+  "/contact": "/previews/contact.svg",
+  "github": "/previews/github.svg",
+  "linkedin": "/previews/linkedin.svg",
+};
+
 export function Dock() {
   const { t } = useLang();
 
@@ -22,23 +31,24 @@ export function Dock() {
     { href: "https://linkedin.com/in/bjcf", labelKey: "dock.linkedin", previewKey: "dock.preview.linkedin", icon: Linkedin, external: true },
   ];
 
+  const previewKey = (href: string, external?: boolean) =>
+    external ? href.includes("github") ? "github" : "linkedin" : href;
+
   return (
     <div className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2">
-      <div className="mx-auto flex h-[58px] w-max items-center gap-1.5 rounded-2xl border border-slate-200 bg-white/70 p-2 shadow-lg backdrop-blur-xl dark:border-slate-700 dark:bg-black/60">
-        {items.map(({ href, labelKey, previewKey, icon: Icon, external }) => (
+      <div className="mx-auto flex h-[58px] w-max items-center gap-1.5 rounded-2xl border border-white/30 bg-white/70 p-2 shadow-lg backdrop-blur-xl dark:border-white/10 dark:bg-black/60">
+        {items.map(({ href, labelKey, previewKey: previewKeyStr, icon: Icon, external }) => (
           <div key={href} className="group relative">
-            {/* Preview tooltip */}
-            <div className="pointer-events-none absolute bottom-full left-1/2 mb-3 -translate-x-1/2 translate-y-2 rounded-xl border border-slate-200 bg-white/80 px-4 py-2 opacity-0 shadow-lg backdrop-blur-xl transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100 dark:border-slate-700 dark:bg-black/80">
-              <div className="flex items-center gap-2">
-                <Icon className="text-foreground size-4 shrink-0" />
-                <div className="text-left">
-                  <p className="text-foreground whitespace-nowrap text-xs font-medium">
-                    {t(labelKey)}
-                  </p>
-                  <p className="text-muted-foreground whitespace-nowrap text-[10px]">
-                    {t(previewKey)}
-                  </p>
-                </div>
+            {/* Preview card — glass style */}
+            <div className="pointer-events-none absolute bottom-full left-1/2 mb-3 w-48 -translate-x-1/2 translate-y-2 opacity-0 shadow-2xl transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100">
+              <img
+                src={previewMap[previewKey(href, external)]}
+                alt={t(labelKey)}
+                className="w-full rounded-xl"
+              />
+              <div className="absolute bottom-0 left-0 right-0 rounded-b-xl bg-gradient-to-t from-black/60 to-transparent px-3 pb-2 pt-6">
+                <p className="text-xs font-medium text-white">{t(labelKey)}</p>
+                <p className="text-[10px] text-white/70">{t(previewKeyStr)}</p>
               </div>
             </div>
 

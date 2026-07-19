@@ -65,7 +65,7 @@ export function SOPViewer({ slug }: { slug: string }) {
         <a
           href={`https://raw.githubusercontent.com/bjcf-dev/${sop.repo}/main/${sop.path}`}
           download
-          className="border-border bg-card hover:border-foreground/30 flex items-center gap-2 rounded-lg border px-4 py-2 text-sm transition-colors"
+          className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white/60 px-4 py-2 text-sm shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700/50 dark:bg-slate-800/40"
         >
           <Download className="size-4" />
           .md

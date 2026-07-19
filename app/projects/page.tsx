@@ -49,29 +49,34 @@ export default function ProjectsPage() {
         <p className="text-destructive text-sm">Failed to load: {error}</p>
       )}
 
-      {!repos && !error && (
-        <div className="grid gap-4 sm:grid-cols-2">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <ProjectSkeleton key={i} />
-          ))}
-        </div>
-      )}
+      <div className="relative">
+        {/* Gradiente de fondo para que el glass transluzca */}
+        <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-br from-blue-400/5 via-transparent to-purple-400/5 dark:from-blue-400/10 dark:to-purple-400/10" />
 
-      {repos && (
-        <div className="grid gap-4 sm:grid-cols-2">
-          {repos.map((repo) => (
-            <ProjectCard
-              key={repo.name}
-              name={repo.name}
-              description={repo.description}
-              stars={repo.stargazers_count}
-              language={repo.language}
-              url={repo.html_url}
-              skills={projectSkills[repo.name] ?? []}
-            />
-          ))}
-        </div>
-      )}
+        {!repos && !error && (
+          <div className="relative grid gap-4 sm:grid-cols-2">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <ProjectSkeleton key={i} />
+            ))}
+          </div>
+        )}
+
+        {repos && (
+          <div className="relative grid gap-4 sm:grid-cols-2">
+            {repos.map((repo) => (
+              <ProjectCard
+                key={repo.name}
+                name={repo.name}
+                description={repo.description}
+                stars={repo.stargazers_count}
+                language={repo.language}
+                url={repo.html_url}
+                skills={projectSkills[repo.name] ?? []}
+              />
+            ))}
+          </div>
+        )}
+      </div>
     </section>
   );
 }

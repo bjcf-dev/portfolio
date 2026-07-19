@@ -17,12 +17,16 @@ export default function SOPsPage() {
         {t("sops.intro")}
       </p>
 
-      <div className="grid gap-4 sm:grid-cols-2">
-        {sops.map((sop) => (
-          <div
-            key={sop.slug}
-            className="border-border bg-card flex flex-col rounded-lg border p-5"
-          >
+      <div className="relative">
+        {/* Gradiente de fondo para el glass */}
+        <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-br from-amber-400/5 via-transparent to-orange-400/5 dark:from-amber-400/10 dark:to-orange-400/10" />
+
+        <div className="relative grid gap-4 sm:grid-cols-2">
+          {sops.map((sop) => (
+            <div
+              key={sop.slug}
+              className="flex flex-col rounded-xl border border-white/30 bg-white/60 p-5 shadow-lg shadow-black/5 backdrop-blur-md transition-all hover:-translate-y-1 hover:scale-[1.02] hover:border-white/50 hover:bg-white/80 hover:shadow-xl dark:border-white/10 dark:bg-black/30 dark:shadow-black/20 dark:hover:border-white/20 dark:hover:bg-black/50"
+            >
             <div className="flex-1">
               <Link
                 href={`/sop/${sop.slug}`}
@@ -35,7 +39,7 @@ export default function SOPsPage() {
               </p>
             </div>
             <div className="flex items-center gap-3 text-sm">
-              <span className="bg-muted text-muted-foreground rounded px-2 py-0.5 text-xs">
+              <span className="rounded-md bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-600 dark:bg-slate-700/50 dark:text-slate-300">
                 {sop.language}
               </span>
               <a
@@ -47,8 +51,9 @@ export default function SOPsPage() {
                 .md
               </a>
             </div>
-          </div>
-        ))}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

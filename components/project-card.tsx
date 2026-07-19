@@ -19,7 +19,7 @@ export function ProjectCard({ name, description, stars, language, url, skills }:
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="border-border bg-card hover:border-foreground/30 group relative block rounded-lg border p-5 transition-all hover:-translate-y-1"
+      className="group relative block rounded-xl border border-white/30 bg-white/60 p-5 shadow-lg shadow-black/5 backdrop-blur-md transition-all hover:-translate-y-1 hover:scale-[1.02] hover:border-white/50 hover:bg-white/80 hover:shadow-xl dark:border-white/10 dark:bg-black/30 dark:shadow-black/20 dark:hover:border-white/20 dark:hover:bg-black/50"
     >
       <h3 className="text-foreground mb-1 font-semibold">{name}</h3>
       {description && (
@@ -46,13 +46,13 @@ export function ProjectCard({ name, description, stars, language, url, skills }:
       </div>
 
       {/* Skills — reveal on hover */}
-      <div className="max-h-0 overflow-hidden transition-all duration-300 ease-out group-hover:max-h-40">
+      <div className="max-h-0 overflow-hidden transition-all duration-300 ease-out group-hover:max-h-48">
         <div className="pt-4">
           <div className="flex flex-wrap gap-1.5">
             {skills.map((skill) => (
               <span
                 key={skill}
-                className="bg-muted text-muted-foreground rounded-md px-2 py-0.5 text-xs font-medium"
+                className="rounded-md bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-600 dark:bg-slate-700/50 dark:text-slate-300"
               >
                 {skill}
               </span>
